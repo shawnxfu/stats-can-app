@@ -1,0 +1,21 @@
+export const COLOR_ARRAY = [
+    "#82c4ff",
+    "#ff700d",
+    "#c2f2ca",
+    "#e0e0e0",
+    "#2ff186",
+    "#fad900",
+    "#dcff66",
+    "#ff55cc",
+    // "#0059e0",
+    "#ffebc8",
+    // "#1e51b3",
+    "#73b300",
+    "#ffbfc3",
+    "#105105",
+    "#0dffef",
+    "#6ff172",
+    "#e5d1ff",
+    "#ff0d0d",
+    "#ffd8c8"
+];

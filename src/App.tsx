@@ -1,35 +1,49 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
+import { Routes, Route } from 'react-router-dom';
+import Start from './features/start';
+import NavLeft from './features/nav_left/navLeft';
+import TopicCard from './features/topic_card/topicCard';
+import ContentView from './features/content_view/contentView';
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
+    <div className="App">
+      <header className="App-header">
         <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
+          This site is based on the data from &nbsp; 
+          <a
+            className="App-link"
+            href="https://www12.statcan.gc.ca/census-recensement/2021/dp-pd/prof/index.cfm?Lang=E"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Statistics Canada - Census Profile - 2021 Census of Population
+          </a>
         </p>
+      </header>
+      <div className='container-fluid text-start'>
+        <div className='row'>
+          <div className='col-lg-2'>
+            <NavLeft />
+          </div>
+          <div className='col-lg-10'>
+            <Routes>
+              <Route path='/' 
+                element={<Start></Start>}>
+              </Route>
+              <Route path='/topic' 
+                element={<TopicCard></TopicCard>}>
+              </Route>
+              <Route path='/view' 
+                element={<ContentView></ContentView>}>
+              </Route>
+            </Routes>
+          </div>
+        </div>
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    </div>
+  );
+    
 }
 
 export default App
