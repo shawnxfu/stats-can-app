@@ -32,7 +32,7 @@ function OffcanvasOption() {
 
     const selectedList = selectedArray.map(s => {
         return (
-            <div className="rounded border float-sm-start ms-1 ps-1">
+            <div key={s.id} className="rounded border float-sm-start ms-1 ps-1">
                 {s.name}
                 <button className="btn btn-sm btn-outline-default"
                     title="Remove from comparison"
@@ -71,7 +71,7 @@ function OffcanvasOption() {
 
     const prList = GEO_PR_LIST.map(p => {
         return (
-            <div>
+            <div key={p.id}>
                 <a className="btn btn-sm text-start" key={p.id}
                     title="Add to comparison"
                     onClick={() => addItem(p)}
@@ -83,7 +83,7 @@ function OffcanvasOption() {
     const cmacaList = GEO_CMACA_LIST.filter(p => p.name.toLowerCase().indexOf(search.toLowerCase()) >= 0)
         .map(p => {
             return (
-                <div>
+                <div key={p.id}>
                     <a className="btn btn-sm text-start" key={p.id}
                         title="Add to comparison"
                         onClick={() => addItem(p)}
@@ -95,7 +95,9 @@ function OffcanvasOption() {
     return (
         <>
             <div>
-                <button className="btn btn-sm btn-outline-dark" onClick={() => setIsShowing(true)}>
+                <button className="btn btn-sm btn-outline-primary"
+                    title="Add into or remove from compare with list"
+                    onClick={() => setIsShowing(true)}>
                     Compare with { compareWith?.length > 0 ? compareWith.slice(0, 2).map(c => c.name).join(", ") + (compareWith.length > 2 ? " and more" : "") : ""}
                 </button>
             </div>

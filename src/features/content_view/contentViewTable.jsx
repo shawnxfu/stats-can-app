@@ -27,7 +27,7 @@ function ContentViewTable({geo, ids, root, handleItemClick}) {
                     return (
                         <>
                             <td className="text-center" colSpan="6">
-                                <div className="spinner-border text-info" role="status">
+                                <div key={val} className="spinner-border text-info" role="status">
                                     <span className="visually-hidden">Loading...</span>
                                 </div>
                             </td>
@@ -37,7 +37,7 @@ function ContentViewTable({geo, ids, root, handleItemClick}) {
             }
             if (g.id === geo.id) {
                 return (
-                    <tr>
+                    <tr key={g.id}>
                         <td width="48%">
                             <DrillDownLink root={root} ch={ch} handleItemClick={handleItemClick}></DrillDownLink>
                         </td>
@@ -46,7 +46,7 @@ function ContentViewTable({geo, ids, root, handleItemClick}) {
                 );
             } else {
                 return (
-                    <tr className="fw-light">
+                    <tr className="fw-light" key={g.id}>
                         <td width="48%" className="text-truncate text-end" title={"Compare with " + g.name}>
                             <span className="pe-3">{g.name}</span>
                         </td>
@@ -63,12 +63,12 @@ function ContentViewTable({geo, ids, root, handleItemClick}) {
     return (
         <table className="table table-sm table-hover table-striped">
             <tbody>
-                <tr>
+                <tr key="header1">
                     <th></th>
                     <th className="text-center" colSpan={3}>Counts</th>
                     <th className="text-center" colSpan={3}>Rates(%)</th>
                 </tr>
-                <tr>
+                <tr key="header2" className="text-center">
                     <th></th>
                     <th>Total</th>
                     <th>Men+</th>

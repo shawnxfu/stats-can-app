@@ -175,13 +175,13 @@ function ContentViewCanvas({geo, ids, root, handleItemClick}) {
                 </>
             )
         return (
-            <tr>{row}</tr>
+            <tr key={ch.id}>{row}</tr>
         )
     });
 
     
     return (
-        <div className="row" style={{minHeight:"200px"}}>
+        <div className="row" style={{minHeight:"200px"}} key={root.id}>
             <div className="col col-md-5">
                 <table className="table table-sm table-hover table-striped" style={{maxHeight:"500px", overflowY:"auto"}}>
                     <tbody>

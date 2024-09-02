@@ -181,7 +181,7 @@ function ContentViewItem({geo, rootCharacteristic, open}) {
         links = linkArray.map(ch => {
             return (
                 <>
-                    <a className="btn btn-sm btn-outline-secondary text-truncate" style={{width:"9em"}}
+                    <a className="btn btn-sm btn-outline-success text-truncate" style={{width:"9em"}}
                         title={"Back to " + ch.name} key={ch.id}
                         onClick={() => handleLinkClick(ch)}>
                         {ch.name}
@@ -194,7 +194,7 @@ function ContentViewItem({geo, rootCharacteristic, open}) {
 
     return (
         <>
-            <div className="accordion-item mb-1" ref={viewRef}>
+            <div className="accordion-item mb-1" ref={viewRef} key={rootCharacteristic.id}>
                 <h2 className="accordion-header">
                     <button className={"accordion-button " + (isOpen ? "collapsed" : "show")}
                         type="button" onClick={() => handleShowAccordion()}
@@ -206,7 +206,7 @@ function ContentViewItem({geo, rootCharacteristic, open}) {
                     <div className="accordion-body">
                         <div className="container-fluid">
                             <div className="row mb-2">
-                                <div className="col-md-10 text-start" key={rootCharacteristic.id}>
+                                <div className="col-md-10 text-start">
                                     <div className="btn-group" role="group">
                                         {links}
                                     </div>
@@ -214,7 +214,7 @@ function ContentViewItem({geo, rootCharacteristic, open}) {
                                 <div className="col-md-2 text-start">
                                     <div className="form-check form-switch">
                                         <label className="form-check-label">Table/Chart</label>
-                                        <input className="form-check-input" type="checkbox" checked={!showTable} 
+                                        <input className="form-check-input btn btn-sm btn-primary" type="checkbox" checked={!showTable} 
                                             onChange={() => switchTableChart()}
                                             title={showTable ? "Switch to chart" : "Switch to table"}
                                             ></input>
