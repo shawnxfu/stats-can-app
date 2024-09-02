@@ -1,11 +1,8 @@
 import './App.css'
 import { Routes, Route } from 'react-router-dom';
 import Start from './features/start';
-// @ts-ignore
 import NavLeft from './features/nav_left/navLeft';
-// @ts-ignore
 import TopicCard from './features/topic_card/topicCard';
-// @ts-ignore
 import ContentView from './features/content_view/contentView';
 
 function App() {
